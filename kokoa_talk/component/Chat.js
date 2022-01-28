@@ -1,7 +1,8 @@
 import React from "react";
 import {View,Text, TouchableOpacity,StyleSheet} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-function Chat({navigation}){
+function Chat({navigation,route}){
+   
     return(
         <View style={styles.container}>
         <View style={styles.header}>
@@ -10,7 +11,7 @@ function Chat({navigation}){
             </Text>
         </View>
         <View style={styles.content}>
-            <Text>FlatList</Text>
+            <Text>{route.params.setList}</Text>
         </View>
         <View style={styles.footer}>
             <TouchableOpacity onPress={()=>navigation.navigate("Main")} style={styles.bt_box}>

@@ -1,9 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import {View,Text, TouchableOpacity,StyleSheet, FlatList} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
-function Main({navigation,friends_list}){
-    console.log(friends_list)
+function Main({navigation}){
+    const [friends_list, setList] = useState([
+        {name:"하현찬",id:1},
+        {name:"박진용" ,id:2},
+        
+      ])
+    const user_list=()=>{
+        
+          navigation.navigate("Chat",{setList:setList})
+    }
     return(
         <View style={styles.container}>
             <View style={styles.header}>
@@ -23,7 +31,7 @@ function Main({navigation,friends_list}){
                 <TouchableOpacity onPress={()=>navigation.navigate("Main")} style={styles.bt_box}>
                     <Icon name="user" size={50} color="red"/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate("Chat")}style={styles.bt_box}>
+                <TouchableOpacity onPress={() => user_list()}style={styles.bt_box}>
                     <Icon name="user" size={50} color="red"/>
                 </TouchableOpacity>
                 <TouchableOpacity title='Search' onPress={() => navigation.push("Chat")}style={styles.bt_box}>
