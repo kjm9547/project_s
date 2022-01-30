@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from "./component/Login"
 import Main from "./component/Main"
 import Chat from "./component/Chat"
+import Chat_Room from "./component/Chat_Room";
 const Stack = createNativeStackNavigator();
 
 function App(){
@@ -18,6 +19,8 @@ function App(){
         <Stack.Screen name="Main" component={Main}options={{headerShown: false,}}>
         </Stack.Screen>
         <Stack.Screen name="Chat" component={Chat} options={{headerShown: false,}}></Stack.Screen>
+        <Stack.Screen name="Chat_Room" component={Chat_Room} options={{headerShown: false,}}></Stack.Screen>
+
       </Stack.Navigator>
     </NavigationContainer>
   )
