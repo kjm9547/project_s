@@ -1,12 +1,8 @@
 import React from "react";
 import {View,Text, TouchableOpacity,StyleSheet, FlatList} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-function Chat({navigation}){
-   const chat_member =[
-       {name:"김재민", id:1},
-       {name:"하현찬", id:2},
-       
-   ]
+function Chat({navigation,route}){
+    console.log(route.name)
     return(
         <View style={styles.container}>
         <View style={styles.header}>
@@ -15,7 +11,7 @@ function Chat({navigation}){
             </Text>
         </View>
         <View style={styles.content}>
-            <FlatList data={chat_member}
+            <FlatList data={route.name}
             renderItem={({item})=>(
                 <TouchableOpacity onPress={()=>navigation.navigate("Chat_Room")}>
                     <Text> {item.name}</Text>
