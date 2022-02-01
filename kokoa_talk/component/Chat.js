@@ -17,7 +17,9 @@ function Chat({navigation}){
         <View style={styles.content}>
             <FlatList data={chat_member}
             renderItem={({item})=>(
-                <TouchableOpacity onPress={()=>navigation.navigate("Chat_Room")}><Text> {item.name}</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate("Chat_Room")}>
+                    <Text> {item.name}</Text>
+                    </TouchableOpacity>
             )}></FlatList>
         </View>
         <View style={styles.footer}>
