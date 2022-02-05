@@ -26,23 +26,19 @@ function Chat_Room({navigation}){
     }
     const [Chat_Contents,SetContents] = useState(
         [
-            {id:1,name:"김재민",text:""}
+            {id:1,name:"김재민",text:"채팅 입력"}
         ]
     )
     return(
     <View style={styles.container}>
         <View style={styles.header}>
-
+            
             <TouchableOpacity onPress={()=>navigation.pop()}>
                 <Icon name="chevron-back-outline" size={50}></Icon>
             </TouchableOpacity>
             <Icon name ={'search'}></Icon>
         </View>
         <View style={styles.content}>
-        <Text>
-                Hi
-        </Text>
-        
         <View style={styles.Chat_content} >
         
             <FlatList 
@@ -58,6 +54,7 @@ function Chat_Room({navigation}){
         </View>
         </View>
         <View style={styles.footer}>
+        
         <TextInput style={styles.input_st}
                    value={text}
                    onChangeText={Settext}
@@ -66,7 +63,12 @@ function Chat_Room({navigation}){
                    placeholder="메시지를 작성"
                    
 >
-            </TextInput>
+        </TextInput>
+        <TouchableOpacity style={styles.onpress_st}
+        onPress={onpress}>
+                <Text>전송</Text>
+        </TouchableOpacity>
+        
         </View>
     </View>
     )
@@ -97,18 +99,18 @@ const styles =StyleSheet.create({
         flexDirection:'row'
     },
     input_st:{
-        borderColor:'red',
+        
         borderWidth:1,
         flex:1
     },
     Chat_content:{
         alignItems:'flex-end',
         borderColor:'black',
-        borderWidth:1
+        
     },
     content_align:{
         flexDirection:'row',
-        borderWidth:1,
+         
         borderColor:'black',
         alignItems:'center',
         alignSelf:'flex-end'
@@ -121,9 +123,17 @@ const styles =StyleSheet.create({
         paddingHorizontal:10,
         paddingTop:15,
         marginBottom:10,
-        marginRight:10
+        marginRight:10,
+        fontSize:15
 
     },
+    onpress_st:{
+        width:65,
+        height:35,
+        borderWidth:1,
+        backgroundColor:'#ffeb3b',
+        alignItems:'center'
+    }
  
 }
 )

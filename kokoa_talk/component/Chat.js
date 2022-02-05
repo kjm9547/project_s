@@ -1,20 +1,29 @@
 import React from "react";
 import {View,Text, TouchableOpacity,StyleSheet, FlatList} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
-function Chat({navigation,route}){
-    console.log(route.name)
+function Chat({navigation}){
+    const user_list=[
+        {id:0,name:"김재민"},
+        {id:1,name:"박진용"},
+        {id:2,name:"하호찬"},
+        {id:3,name:"이재준"},
+    ]
     return(
         <View style={styles.container}>
         <View style={styles.header}>
-            <Text>
-                Chat_List
+            <Text style={styles.title_name}>
+                채팅
             </Text>
         </View>
         <View style={styles.content}>
-            <FlatList data={route.name}
+            <FlatList style={styles.list}
+            ItemSeparatorComponent={()=><View style={styles.separate_line}/>} 
+            data={user_list}
             renderItem={({item})=>(
-                <TouchableOpacity onPress={()=>navigation.navigate("Chat_Room")}>
-                    <Text> {item.name}</Text>
+                <TouchableOpacity style ={styles.list_st}
+                onPress={()=>navigation.navigate("Chat_Room")}>
+                    <View style={styles.user_img}/>
+                    <Text style={styles.user_txt}>{item.name}</Text>
                     </TouchableOpacity>
             )}></FlatList>
         </View>
@@ -61,7 +70,41 @@ bt_box:{
     borderWidth:1,
     borderColor:"black",
     paddingHorizontal:28
-}
+},
+list:{
+    borderWidth:1,
+    
+    },
+separate_line:{
+    height:1,
+    backgroundColor:'#e0e0e0',
+    width:'90%',
+    alignSelf:"center"
+    
+    
+},
+user_txt:{
+    fontSize:16,
+    paddingHorizontal:10,
+    alignSelf:"center"
+},
+user_img:{
+    width:50,
+    height:50,
+    borderRadius:20,
+    borderWidth:1,
+    borderColor:'#e0e0e0'
+},
+list_st:{
+    flexDirection:"row",
+    marginTop:5,
+    marginBottom:14,
+    
+},
+title_name:{
+    fontSize:40,
+    fontWeight:"bold"
+},
 })
 
 export default Chat

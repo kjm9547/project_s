@@ -18,12 +18,7 @@ function App(){
       <Stack.Navigator initiolRoutename ="Login">
         <Stack.Screen name="Login" component={Login} options={{headerShown: false,}}>
         </Stack.Screen>
-        <Stack.Screen name="Main" component={Main}  options={{headerShown: false,}}
-         initialParams={}={[
-           {name:'김재민'},
-           {name:'ㅂㅈㄴ'},
-           {name:'ㅇㅁㄴ'}
-          ]}>
+        <Stack.Screen name="Main" component={Main}  options={{headerShown: false,}}>
         </Stack.Screen>
         <Stack.Screen name="Chat" component={Chat} options={{headerShown: false,}}></Stack.Screen>
         <Stack.Screen name="Chat_Room" component={Chat_Room} options={{headerShown: false,}}></Stack.Screen>
